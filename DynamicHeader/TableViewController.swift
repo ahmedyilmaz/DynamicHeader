@@ -16,7 +16,6 @@ class TableViewController: UITableViewController,UINavigationControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadSetup()
         
     }
@@ -37,31 +36,26 @@ class TableViewController: UITableViewController,UINavigationControllerDelegate 
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let ImageTransitionRatio = CGFloat(2)
-        let scrollAlphaOffset = CGFloat(150)
-        
         guard let navigationController = self.navigationController else { return }
+        let scrollAlphaOffset = CGFloat(imageView.frame.height - (navigationController.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height))
+        let textAlphaOffset = scrollAlphaOffset/2
+     
         
-        if scrollView.contentOffset.y <= scrollAlphaOffset && scrollView.contentOffset.y >= 0 {
+        if scrollView.contentOffset.y <= scrollAlphaOffset {
             
             self.imageView.alpha = 1 - (scrollView.contentOffset.y / scrollAlphaOffset)
-            self.imageView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y/ImageTransitionRatio), width: self.imageView.frame .width, height: self.imageView.frame .height)
+            self.imageView.frame = CGRect(x: 0, y: (scrollView.contentOffset.y/ImageTransitionRatio) > 0 ? (scrollView.contentOffset.y/ImageTransitionRatio) : -scrollView.contentOffset.y/2 , width: self.imageView.frame.width, height: self.imageView.frame.height)
             navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white.withAlphaComponent(scrollView.contentOffset.y/scrollAlphaOffset)]
             
-            self.navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.0)
-            self.statusBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.0)
-            
-        } else if scrollView.contentOffset.y > scrollAlphaOffset && scrollView.contentOffset.y < 200 {
-            
-            if self.statusBar.backgroundColor != #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(1.0) {
-                UIView.animate(withDuration: 0.2) {
-                    navigationController.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(1.0)
-                    self.statusBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(1.0)
-                }
-                
+            if scrollView.contentOffset.y > textAlphaOffset {
+                self.navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent((((scrollView.contentOffset.y-textAlphaOffset)-20) / textAlphaOffset))
+                self.statusBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent((((scrollView.contentOffset.y-textAlphaOffset)-20) / textAlphaOffset))
             }
             
         }
-        //        print("scroll: \(scrollView.contentOffset.y) ")
+        
+        print(scrollView.contentOffset.y)
+
     }
     
 }
