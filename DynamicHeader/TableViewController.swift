@@ -20,6 +20,10 @@ class TableViewController: UITableViewController,UINavigationControllerDelegate 
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func loadSetup() {
         loadTransparentNavigation()
         addMoreData()
@@ -116,7 +120,6 @@ extension TableViewController {
             if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
                 statusBar.backgroundColor = UIColor.black.withAlphaComponent(0.0)
             }
-            UIApplication.shared.statusBarStyle = .lightContent
         }
         
     }
