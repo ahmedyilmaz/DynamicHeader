@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="1880" y="-218"/>
         </scene>
-        <!--Dünya 5 ten büyüktür-->
+        <!--Steve Jobs Announces 3G iPhone-->
         <scene sceneID="7FP-LK-8wl">
             <objects>
                 <tableViewController id="cJh-Tu-NEV" customClass="TableViewController" customModule="DynamicHeader" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="reiz" id="4pc-SW-7x3">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="reyiz" id="4pc-SW-7x3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
@@ -80,7 +80,7 @@
                             <outlet property="delegate" destination="cJh-Tu-NEV" id="KGt-I9-BgN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dünya 5 ten büyüktür" id="3xS-BU-X01"/>
+                    <navigationItem key="navigationItem" title="Steve Jobs Announces 3G iPhone" id="3xS-BU-X01"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="4pc-SW-7x3" id="m0a-f3-ZtS"/>
@@ -110,6 +110,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="reiz" width="800" height="450"/>
+        <image name="reyiz" width="630" height="420"/>
     </resources>
 </document>
